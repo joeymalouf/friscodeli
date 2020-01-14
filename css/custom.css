@@ -1,0 +1,145 @@
+body {
+    background-color: rgb(245,245,245);
+
+}
+
+.mobileMenu {
+    background: url('../images/mobile-bg.png') no-repeat 50% / 100%;
+    background-size: cover;
+    position: relative;
+
+}
+
+.desktopMenu {
+    background: url('../images/desktopLanding3.png') no-repeat 50% / 100%;
+    background-size: cover;
+    position: relative;
+}
+
+.desktopMenu .desktopMenuBackground {
+    width: 100%; 
+    opacity: 0;  
+    z-index: 0;
+}
+
+.mobileMenu .mobileMenuBackground {
+    width: 100%; 
+    opacity: 0;  
+    z-index: 0;
+}
+
+.mobileButtons {
+    float:left;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.desktopButtons {
+    float:left;
+    height: 87%;
+    width: 48%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mobileButtons a {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.desktopButtons a {
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.menuButton {
+    width: 28%;
+    z-index: 1;
+    margin-bottom: 3%;
+}
+
+.locationButton {
+    width: 28%;
+    z-index: 2;
+}
+
+.desktopMenuButton {
+    width: 20%;
+    z-index: 1;
+    margin-bottom: 3%;
+}
+
+.desktopLocationButton {
+    width: 20%;
+    z-index: 2;
+}
+
+#mobileLandingRibs {
+    width: 100%;
+    margin-top: 30px;
+}
+
+#mobileLandingGyro {
+    width: 100%;
+    margin-top: 30px;
+}
+
+#mobileLandingDescription {
+    margin-top: 30px;
+    background-color: rgb(230,230,240);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 20% 10% 20% 10%;
+}
+
+.navbar-logo {
+    width: 180px;
+    margin-right: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-size: 25px;
+}
+
+.navbar-dark {
+    background-color: rgb(139,56,43);
+}
+
+@media (min-width: 992px) {
+    .nav-item {
+    margin-right: 20px;
+    margin-left: 20px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .nav-item {
+        border-bottom: 1px solid lightgray;
+        text-align: right;
+    }
+    /* .nav-item-top {
+        border-top: 1px solid lightgray;
+        margin-top: 10px;
+    } */
+    .nav-item-bottom {
+        border-bottom: none;
+    }
+}
