@@ -1,13 +1,11 @@
 body {
     background-color: rgb(245,245,245);
-
 }
 
 .mobileMenu {
     background: url('../images/mobile-bg.png') no-repeat 50% / 100%;
     background-size: cover;
     position: relative;
-
 }
 
 .desktopMenu {
@@ -65,6 +63,60 @@ body {
     justify-content: center;
     width: 100%
 }
+
+.desktopPictures {
+    float: right;
+    height: 91%;
+    width: 133%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.desktopPicture {
+    width: 22%;
+    z-index: 1; 
+}
+
+#desktopPicture1 {
+    margin: 5px;
+    padding: 5px;
+    background-color: white;
+    border: solid black 8px;
+
+}
+#desktopPicture2 {
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+    border: solid black 8px;
+
+}
+#desktopPicture3 {
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+    border: solid black 8px;
+
+}
+#desktopPicture4 {
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+    border: solid black 8px;
+
+}
+
 
 .menuButton {
     width: 28%;
