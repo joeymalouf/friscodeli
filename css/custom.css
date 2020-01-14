@@ -151,15 +151,7 @@ body {
     margin-top: 30px;
 }
 
-#mobileLandingDescription {
-    margin-top: 30px;
-    background-color: rgb(230,230,240);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 22px;
-    font-weight: bolder;
-    text-align: center;
-    padding: 20% 10% 20% 10%;
-}
+
 
 .navbar-logo {
     width: 180px;
@@ -173,6 +165,16 @@ body {
 
 .navbar-dark {
     background-color: rgb(139,56,43);
+}
+
+#mobileLandingDescription {
+    margin-top: 30px;
+    background-color: rgb(230,230,240);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 20% 10% 20% 10%;
 }
 
 @media (min-width: 992px) {
@@ -194,5 +196,11 @@ body {
     } */
     .nav-item-bottom {
         border-bottom: none;
+    }
+}
+
+@media (min-width: 768px) {
+    #mobileLandingDescription {
+        padding: 70px 10% 70px 10%;
     }
 }
