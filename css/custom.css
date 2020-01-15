@@ -121,13 +121,15 @@ body {
 
 .menuButton {
     width: 28%;
+    height: 83%;
     z-index: 1;
     margin-bottom: 3%;
 }
 
 .locationButton {
     width: 28%;
-    z-index: 2;
+    height: 100%;
+    z-index: 1;
 }
 
 .desktopMenuButton {
