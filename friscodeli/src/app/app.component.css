@@ -1,0 +1,45 @@
+.wrapper {
+    min-height: 100%;
+
+    margin-bottom: -82px;
+}
+
+footer {
+    margin-top: 10px;
+}
+
+.push {
+    height: 82px;
+}
+
+.navbar-logo {
+    width: 180px;
+    margin-right: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-size: 25px;
+}
+
+.navbar-dark {
+    background-color: rgb(139,56,43);
+}
+
+@media (min-width: 992px) {
+    .nav-item {
+    margin-right: 20px;
+    margin-left: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-item {
+        border-bottom: 1px solid lightgray;
+        text-align: right;
+    }
+
+    .nav-item-bottom {
+        border-bottom: none;
+    }
+}
