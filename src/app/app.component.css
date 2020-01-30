@@ -48,12 +48,11 @@ footer {
 }
 
 .navbar-toggler {
-    background-color: rgb(150,20,20);
     padding: 6px 6px 6px 6px;
 }
 
 .bars {
-    height: 20px;
+    height: 25px;
     display: flex;
 }
 
@@ -86,6 +85,9 @@ footer {
 
     .nav-item-bottom {
         border-bottom: none;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 30px;
     }
 }
 

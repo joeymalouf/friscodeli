@@ -1,0 +1,11 @@
+.card-title {
+    display: flex;
+}
+
+.card {
+    border: none;
+}
+
+.itemName {
+    flex-grow: 1;
+}

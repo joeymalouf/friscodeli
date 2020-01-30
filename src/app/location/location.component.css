@@ -23,6 +23,7 @@
 .text {
     margin-top: 20px; 
     margin-left: 10px;
+    text-align: center;
 }
 
 .facebook {
@@ -43,9 +44,9 @@
     .googleMap {
         padding-bottom: 11px;
     }
-    .zomato, .tripadvisor, .facebook {
-        /* margin-left: 10px;
-        margin-right: 10px; */
+    .text {
+        margin-left: 10px;
+        text-align: left;
     }
 }
 
