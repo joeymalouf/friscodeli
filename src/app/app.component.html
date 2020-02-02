@@ -1,32 +1,53 @@
 <div class="wrapper">
-    <header *ngIf="router.url !=='/'">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><img class="navbar-logo" src="assets/images/frisco-text-logo.png"></a>
-            <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
-                <img src="assets/images/bars.png" class="bars">
-            </button>
+  <header *ngIf="router.url !== '/'">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img class="navbar-logo" src="assets/images/frisco-text-logo.png" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        <img src="assets/images/bars.png" class="bars" />
+      </button>
 
-            <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item nav-item-top">
-                        <a class="nav-link " routerLink="/" (click)="isCollapsed = !isCollapsed">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/menu" (click)="isCollapsed = !isCollapsed">Menu</a>
-                    </li>
-                    <li class="nav-item nav-item-bottom">
-                        <a class="nav-link" routerLink="/location" (click)="isCollapsed = !isCollapsed">Location</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <router-outlet></router-outlet>
-    <div class="push"></div>
+      <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item nav-item-top">
+            <a
+              class="nav-link "
+              routerLink="/"
+              (click)="isCollapsed = !isCollapsed"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/menu"
+              (click)="isCollapsed = !isCollapsed"
+              >Menu</a
+            >
+          </li>
+          <li class="nav-item nav-item-bottom">
+            <a
+              class="nav-link"
+              routerLink="/location"
+              (click)="isCollapsed = !isCollapsed"
+              >Location</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <router-outlet></router-outlet>
+  <div class="push"></div>
 </div>
 
 <footer class="py-4 bg-dark">
-    <div class="container text-white">
-        What
-    </div>
+  <div class="container text-white">
+    What
+  </div>
 </footer>
