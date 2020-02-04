@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AuthService } from '../core/auth.service';
 import { Observable } from 'rxjs';
@@ -6,13 +6,10 @@ import { Item } from '../models/item.model';
 import { Category } from '../models/category.model';
 import { User } from '../models/user.model';
 
-
-@Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class AdminComponent implements OnInit {
+export class MenuService {
   itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<any[]>;
 
@@ -21,16 +18,11 @@ export class AdminComponent implements OnInit {
 
   user: User;
 
-  constructor(public afs: AngularFirestore, public auth: AuthService) { }
-
-  ngOnInit() {
-    this.itemsCollection = this.afs.collection('items');
-    this.items = this.itemsCollection.valueChanges();
-
-    this.auth.user.subscribe(user => this.user = user)
+  constructor(public afs: AngularFirestore, public auth: AuthService) {
   }
 
-  editPost() {
-
+  getItems() {
+    this.itemsCollection = this.afs.collection('items');
+    return this.items = this.itemsCollection.valueChanges();
   }
 }

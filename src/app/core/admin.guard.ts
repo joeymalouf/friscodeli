@@ -7,24 +7,23 @@ import { tap, map, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(private auth: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
-
-      return this.auth.currentUserObservable.pipe(
-        take(1),
-        map(user => {
-            return !!user;
-        }),
-        tap( loggedIn => {
-            if (!loggedIn) {
-                this.router.navigate(['/login']);
-            }
-        })
+    return this.auth.user.pipe(
+      take(1),
+      map(user => (user && this.auth.checkAdmin(user)) ? true : false),
+      tap(canWrite => {
+        if (!canWrite) {
+          console.log("oops")
+          this.router.navigate(['/login']);
+        }
+      })
     );
   }
+
 }

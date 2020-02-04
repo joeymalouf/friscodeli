@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
-interface User {
-  uid: string;
-  email: string;
-}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -34,30 +29,44 @@ export class AuthService {
       })
     );
   }
-  googleLogin() {
+
+  async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
-    return this.oAuthLogin(provider);
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    await this.updateUserData(credential.user);
+    return this.router.navigate(['admin']);
   }
-  private oAuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-      });
-  }
+
   private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = {
       uid: user.uid,
       email: user.email,
+      admin: false,
     };
 
-    return userRef.set(data, {merge: true});
+    return userRef.get();
   }
 
-  signOut() {
-    this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
-    });
+  async signOut() {
+    await this.afAuth.auth.signOut();
+    return this.router.navigate(['']);
+  }
+
+  get currentUserObservable(): any {
+    return this.afAuth.authState;
+  }
+
+  checkAdmin(user: User) {
+    console.log(user)
+    if (!user) {
+      return false;
+    }
+    if (user.admin === true) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

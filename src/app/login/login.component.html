@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="container h-100 d-flex justify-content-center">
+  <div class="jumbotron my-auto">
+    <div *ngIf="auth.currentUserObservable | async; then authenticated; else guest">
+      <!-- template will replace this div -->
+    </div>
+  </div>
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12, cold-md-6 text-center">
+        <h3>Login</h3>
+        <br>
+        <button class="btn btn-primary" (click)="auth.googleSignin()">
+          <i class="fa fa-google"></i> Connect Google
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.currentUserObservable | async as user">
+    <button class="btn btn-primary" (click)="auth.signOut()">Logout</button>
+  </div>
+</ng-template>
