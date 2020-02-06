@@ -19,7 +19,6 @@ export class AdminGuard implements CanActivate {
       map(user => (user && this.auth.checkAdmin(user)) ? true : false),
       tap(canWrite => {
         if (!canWrite) {
-          console.log("oops")
           this.router.navigate(['/login']);
         }
       })

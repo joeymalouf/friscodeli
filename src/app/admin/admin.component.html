@@ -1,1 +1,41 @@
-<p>admin works!</p>
+<!-- <div class="container-fluid p-0">
+  <div class="row justify-content-center no-gutters">
+      <div class="card col-12 col-lg-10">
+          <div class="card-header">
+              <h3>Featured</h3>
+          </div>
+      </div>
+  </div>
+  <div class="row no-gutters justify-content-center" *ngFor="let item of items | async ">
+      <div class="col-11 col-lg-5">
+          <div class="card">
+              <div class="card-body">
+                  <div class="card-title">
+                      <h5 class="itemName">{{item.name}}</h5>
+                      <h5>{{item.price}}</h5>
+                  </div>
+                  <p class="card-text">{{item.description}}</p>
+              </div>
+          </div>
+          <hr>
+
+      </div>
+  </div>
+</div> -->
+
+
+
+<li *ngFor="let category of categories2">
+  {{ category.name }}
+  {{ category.order }}
+  <p *ngFor="let item of category.items">
+    {{ item.name }}
+    {{ item.price }}
+  </p>
+</li>
+
+<!-- <li *ngFor="let item of items">
+  {{ item.name }}
+  {{ item.price }}
+</li> -->
+

@@ -9,3 +9,7 @@
 .itemName {
     flex-grow: 1;
 }
+
+.card-header {
+  text-align: center;
+}

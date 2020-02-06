@@ -1,0 +1,15 @@
+.card-title {
+  display: flex;
+}
+
+.card {
+  border: none;
+}
+
+.itemName {
+  flex-grow: 1;
+}
+
+.card-header {
+  text-align: center;
+}
