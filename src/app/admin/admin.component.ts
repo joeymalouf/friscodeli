@@ -19,43 +19,55 @@ export class AdminComponent implements OnInit {
   categories: CategoryItems[] = [];
   items: Item[] = [];
 
-  categories2: CategoryItems[] = [];
-  items2: Item[] = [];
-
   user: User;
 
   constructor(public afs: AngularFirestore, public auth: AuthService) { }
 
   ngOnInit() {
+    // this.afs.collection('categories', ref => ref.orderBy('order')).snapshotChanges().subscribe(data => {
+    //   data.forEach(cat => {
+    //     let category:any = cat.payload.doc.data();
+    //     category.id = cat.payload.doc.id;
+    //     this.categories.push(category)
+    //   });
+    // });
+
+    // this.afs.collection('items', ref => ref.orderBy('category')).snapshotChanges().subscribe(data => {
+    //   data.forEach(i => {
+    //     let item:any = i.payload.doc.data();
+    //     item.id = i.payload.doc.id;
+    //     this.items.push(item)
+    //   });
+    // });
+
+
     this.afs.collection('categories', ref => ref.orderBy('order')).snapshotChanges().subscribe(data => {
       data.forEach(cat => {
         let category:any = cat.payload.doc.data();
         category.id = cat.payload.doc.id;
-        this.categories.push(category)
-      });
-    });
-
-    this.afs.collection('items', ref => ref.orderBy('category')).snapshotChanges().subscribe(data => {
-      data.forEach(i => {
-        let item:any = i.payload.doc.data();
-        item.id = i.payload.doc.id;
-        this.items.push(item)
-      });
-    });
-
-
-    this.afs.collection('categories', ref => ref.orderBy('order')).snapshotChanges().subscribe(data => {
-      data.forEach(cat => {
-        let category:any = cat.payload.doc.data();
-        category.id = cat.payload.doc.id;
-        this.categories2.push(category)
-        category.items = []
+        let exists = this.categories.find(obj => obj.id == category.id)
+        if (exists) {
+          console.log(exists.id + ": category already exists")
+          exists = Object.assign(exists, category)
+        }
+        else {
+          this.categories.push(category)
+          exists = this.categories.find(obj => obj.id == category.id)
+          category.items = []
+        }
         this.afs.collection('items', ref => ref.where('category', '==', category.name.toLowerCase())).snapshotChanges().subscribe(data => {
           data.forEach(i => {
             let item:any = i.payload.doc.data();
             item.id = i.payload.doc.id;
-            this.categories2.find(obj => obj.name.toLowerCase() == category.name.toLowerCase()).items.push(item)
-            console.log(this.categories2.find(obj => obj.name.toLowerCase() == category.name.toLowerCase()))
+            let itemExists = exists.items.find(obj => obj.id == item.id)
+            if (itemExists) {
+              console.log(itemExists.id + ": item already exists")
+              itemExists = Object.assign(itemExists, item)
+            }
+            else {
+              this.categories.find(obj => obj.id == category.id).items.push(item)
+            }
+
           });
         });
       });
@@ -96,7 +108,12 @@ export class AdminComponent implements OnInit {
   //   });
   // }
 
+
   editPost() {
 
+  }
+
+  test(id) {
+    console.log(id)
   }
 }
